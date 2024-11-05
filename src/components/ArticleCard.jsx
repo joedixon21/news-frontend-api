@@ -11,7 +11,7 @@ export default function ArticleCard(props) {
   const article_id = articleCard.article_id;
 
   return (
-    <div className="articleCard">
+    <main className="articleCard">
       <div className="articleCardHeader">
         <h2>
           <Link to={`/articles/${article_id}`}>{title}</Link>
@@ -24,6 +24,6 @@ export default function ArticleCard(props) {
       <div className="articleImage">
         <img src={article_img_url}></img>
       </div>
-    </div>
+    </main>
   );
 }
