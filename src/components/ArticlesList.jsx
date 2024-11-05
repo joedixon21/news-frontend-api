@@ -14,7 +14,7 @@ export default function ArticlesList() {
     setIsError(false);
     getAllArticles()
       .then((allArticlesData) => {
-        setAllArticles(allArticlesData.articles);
+        setAllArticles(allArticlesData);
         setIsLoading(false);
       })
       .catch((error) => {
