@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: "https://news-backend-api-r7r9.onrender.com/api",
 });
 
-const getAllArticles = () => {
+export const getAllArticles = () => {
   return api
     .get(`/articles`)
     .then((response) => {
@@ -15,4 +15,13 @@ const getAllArticles = () => {
     });
 };
 
-export default getAllArticles;
+export const getSingleArticle = (article_id) => {
+  return api
+    .get(`/articles/${article_id}`)
+    .then((response) => {
+      return response.data.article;
+    })
+    .catch((error) => {
+      return error;
+    });
+};
