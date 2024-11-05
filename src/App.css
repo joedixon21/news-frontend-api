@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
-  gap: 30px;
   min-height: 100vh;
 }
 
@@ -70,7 +69,7 @@ body {
 
 .singleArticle {
   max-width: 800px;
-  width: 90%;
+  border: 1px solid black;
   margin: 20px;
   padding: 20px;
   border-radius: 8px;
@@ -102,4 +101,66 @@ body {
   line-height: 1.6;
   color: #444;
   text-align: justify;
+}
+
+.commentsList {
+  display: flex;
+  justify-content: center;
+}
+
+.commentsHeader {
+  text-align: center;
+}
+
+.commentCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 12px 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.commentCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.commentAuthor {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.commentDate {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.commentBody {
+  margin: 12px 0;
+}
+
+.commentText {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.commentFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commentVotes {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
 }

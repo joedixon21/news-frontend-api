@@ -14,7 +14,7 @@ export default function ArticlesList() {
     setIsError(false);
     getAllArticles()
       .then((allArticlesData) => {
-        setAllArticles(allArticlesData.articles);
+        setAllArticles(allArticlesData);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -30,7 +30,7 @@ export default function ArticlesList() {
   }
 
   return (
-    <div className="articlesList">
+    <main className="articlesList">
       <ul>
         {allArticles.map((article) => {
           return (
@@ -40,6 +40,6 @@ export default function ArticlesList() {
           );
         })}
       </ul>
-    </div>
+    </main>
   );
 }
