@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import getAllArticles from "../utils/api";
+import { getAllArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
+import Error from "./Error";
 
 export default function ArticlesList() {
   const [isError, setIsError] = useState(false);
@@ -12,8 +13,8 @@ export default function ArticlesList() {
     setIsLoading(true);
     setIsError(false);
     getAllArticles()
-      .then((data) => {
-        setAllArticles(data.articles);
+      .then((allArticlesData) => {
+        setAllArticles(allArticlesData.articles);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -30,7 +31,6 @@ export default function ArticlesList() {
 
   return (
     <div className="articlesList">
-      <h1>Welcome to Joe's News!</h1>
       <ul>
         {allArticles.map((article) => {
           return (
