@@ -35,11 +35,7 @@ export default function CommentsList() {
     <div className="commentsList">
       <ul>
         {allComments.map((comment) => {
-          return (
-            <li key={comment.comment_id}>
-              <CommentCard commentCard={comment} />
-            </li>
-          );
+          return <CommentCard key={comment.comment_id} commentCard={comment} />;
         })}
       </ul>
     </div>

@@ -15,7 +15,7 @@ export default function CommentCard(props) {
   });
 
   return (
-    <div className="commentCard">
+    <li className="commentCard">
       <div className="commentCardHeader">
         <h3 className="commentAuthor">{author}</h3>
         <p className="commentDate">Posted: {formattedDate}</p>
@@ -26,6 +26,6 @@ export default function CommentCard(props) {
       <div className="commentFooter">
         <p className="commentVotes">Votes: {votes}</p>
       </div>
-    </div>
+    </li>
   );
 }
