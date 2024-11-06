@@ -48,3 +48,17 @@ export const updateArticleVotes = (article_id, inc) => {
       return error;
     });
 };
+
+export const postComment = (article_id, body) => {
+  return api
+    .post(`/articles/${article_id}/comments`, {
+      username: "cooljmessy",
+      body: body,
+    })
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      return error;
+    });
+};

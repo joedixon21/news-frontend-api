@@ -5,11 +5,11 @@ import Loading from "./Loading";
 import CommentCard from "./CommentCard";
 import { useParams } from "react-router-dom";
 
-export default function CommentsList() {
+export default function CommentsList(props) {
+  const { allComments, setAllComments } = props;
   const { article_id } = useParams();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [allComments, setAllComments] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,10 +19,10 @@ export default function CommentsList() {
         setAllComments(allCommentsData);
         setIsLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setIsError(true);
       });
-  }, []);
+  }, [article_id, setAllComments]);
 
   if (isError) {
     return <Error />;
@@ -35,11 +35,7 @@ export default function CommentsList() {
     <div className="commentsList">
       <ul>
         {allComments.map((comment) => {
-          return (
-            <li key={comment.comment_id}>
-              <CommentCard commentCard={comment} />
-            </li>
-          );
+          return <CommentCard key={comment.comment_id} commentCard={comment} />;
         })}
       </ul>
     </div>
