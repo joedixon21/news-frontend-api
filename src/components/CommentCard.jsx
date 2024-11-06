@@ -1,4 +1,5 @@
 import { formatDate } from "../utils/formatDate";
+import CommentDeleter from "./CommentDeleter";
 
 export default function CommentCard(props) {
   const { commentCard } = props;
@@ -7,6 +8,7 @@ export default function CommentCard(props) {
   const created_at = formatDate(commentCard.created_at);
   const author = commentCard.author;
   const body = commentCard.body;
+  const comment_id = commentCard.comment_id;
 
   return (
     <li className="commentCard">
@@ -20,6 +22,7 @@ export default function CommentCard(props) {
       <div className="commentFooter">
         <p className="commentVotes">Votes: {votes}</p>
       </div>
+      <CommentDeleter comment_id={comment_id} author={author} />
     </li>
   );
 }

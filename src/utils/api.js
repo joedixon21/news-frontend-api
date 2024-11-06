@@ -62,3 +62,14 @@ export const postComment = (article_id, body) => {
       return error;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return api
+    .delete(`/comments/${comment_id}`)
+    .then((response) => {
+      response.status === 204;
+    })
+    .catch((error) => {
+      return error;
+    });
+};

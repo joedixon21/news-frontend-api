@@ -3,7 +3,7 @@ import { getSingleArticle } from "../utils/api";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import Error from "./Error";
-import CommentsProvider from "./CommentsProvider";
+import CommentsManager from "./CommentsManager";
 import SingleArticleVotes from "./SingleArticleVotes";
 
 export default function SingleArticle() {
@@ -54,7 +54,7 @@ export default function SingleArticle() {
           <p>{singleArticle.body}</p>
         </div>
       </article>
-      <CommentsProvider />
+      <CommentsManager />
     </>
   );
 }
