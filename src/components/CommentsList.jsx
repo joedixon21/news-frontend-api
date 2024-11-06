@@ -22,7 +22,7 @@ export default function CommentsList(props) {
       .catch(() => {
         setIsError(true);
       });
-  }, [article_id, setAllComments]);
+  }, []);
 
   if (isError) {
     return <Error />;
