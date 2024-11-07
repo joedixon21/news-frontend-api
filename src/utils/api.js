@@ -4,11 +4,17 @@ const api = axios.create({
   baseURL: "https://news-backend-api-r7r9.onrender.com/api",
 });
 
-export const getAllArticles = (topic_slug) => {
+export const getAllArticles = (
+  topic,
+  sort_by = "created_at",
+  order = "desc"
+) => {
   return api
     .get(`/articles`, {
       params: {
-        topic: topic_slug,
+        topic,
+        sort_by,
+        order,
       },
     })
     .then((response) => {

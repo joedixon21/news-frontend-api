@@ -8,6 +8,7 @@ export default function ArticleCard(props) {
   const topic = articleCard.topic;
   const article_img_url = articleCard.article_img_url;
   const votes = articleCard.votes;
+  const comment_count = articleCard.comment_count;
   const created_at = formatDate(articleCard.created_at);
   const article_id = articleCard.article_id;
 
@@ -17,9 +18,10 @@ export default function ArticleCard(props) {
         <h2>
           <Link to={`/articles/${article_id}`}>{title}</Link>
         </h2>
-        <p>Written by {author}</p>
+        <p>Written by: {author}</p>
         <p>Topic: {topic}</p>
         <p>Votes: {votes}</p>
+        <p>Comment Count: {comment_count}</p>
         <p>Date Uploaded: {created_at}</p>
       </div>
       <div className="articleImage">
