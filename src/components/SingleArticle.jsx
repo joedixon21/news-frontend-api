@@ -9,14 +9,14 @@ import SingleArticleVotes from "./SingleArticleVotes";
 export default function SingleArticle() {
   const { article_id } = useParams();
 
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [singleArticle, setSingleArticle] = useState("");
   const [votes, setVotes] = useState(0);
 
   useEffect(() => {
     setIsLoading(true);
-    setIsError(false);
+    setError(null);
     getSingleArticle(article_id)
       .then((singleArticleData) => {
         setSingleArticle(singleArticleData);
@@ -24,13 +24,15 @@ export default function SingleArticle() {
         setIsLoading(false);
       })
       .catch((error) => {
-        setIsError(true);
+        setIsLoading(false);
+        setError(error);
       });
   }, [article_id]);
 
-  if (isError) {
-    return <Error />;
+  if (error) {
+    return <Error status={error.status} message={error.response.data.msg} />;
   }
+
   if (isLoading) {
     return <Loading />;
   }

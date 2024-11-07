@@ -14,7 +14,7 @@ export default function ArticlesListByTopic() {
 
   const [sortBy, setSortBy] = useState(initialSortBy);
   const [order, setOrder] = useState(initialOrder);
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [allArticles, setAllArticles] = useState([]);
 
@@ -29,21 +29,23 @@ export default function ArticlesListByTopic() {
   useEffect(() => {
     setSearchParams({ sort_by: sortBy, order: order });
     setIsLoading(true);
-    setIsError(false);
+    setError(null);
+
     getAllArticles(topic, sortBy, order)
       .then((allArticlesData) => {
         setAllArticles(allArticlesData);
         setIsLoading(false);
       })
       .catch((error) => {
-        setIsError(true);
         setIsLoading(false);
+        setError(error);
       });
   }, [topic, sortBy, order, setSearchParams]);
 
-  if (isError) {
-    return <Error />;
+  if (error) {
+    return <Error status={error.status} message={error.response.data.msg} />;
   }
+
   if (isLoading) {
     return <Loading />;
   }
