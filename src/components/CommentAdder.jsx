@@ -1,10 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { postComment } from "../utils/api";
-import { allCommentsContext } from "../contexts/AllCommentsProvider";
 
-export default function CommentAdder() {
-  const { allComments, setAllComments } = useContext(allCommentsContext);
+export default function CommentAdder(props) {
+  const { allComments, setAllComments } = props;
   const { article_id } = useParams();
 
   const [body, setBody] = useState("");

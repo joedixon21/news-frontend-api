@@ -1,11 +1,14 @@
-import { useContext, useState } from "react";
-import { allCommentsContext } from "../contexts/AllCommentsProvider";
+import { useState } from "react";
 import { deleteComment } from "../utils/api";
 
 export default function CommentDeleter(props) {
-  const { allComments, setAllComments, setSuccessResponse } =
-    useContext(allCommentsContext);
-  const { comment_id, author } = props;
+  const {
+    comment_id,
+    author,
+    allComments,
+    setAllComments,
+    setSuccessResponse,
+  } = props;
   const [error, setError] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
