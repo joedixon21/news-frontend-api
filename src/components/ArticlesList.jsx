@@ -27,7 +27,10 @@ export default function ArticlesListByTopic() {
   };
 
   useEffect(() => {
-    setSearchParams({ sort_by: sortBy, order: order });
+    if (location.pathname !== "/") {
+      setSearchParams({ sort_by: sortBy, order: order });
+    }
+
     setIsLoading(true);
     setError(null);
 
