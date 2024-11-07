@@ -1,7 +1,10 @@
-export default function Error() {
+export default function Error(props) {
+  const { status, message } = props;
+
   return (
     <div className="error">
-      <h2>Error: Content Not Found</h2>
+      <h1>{status || 404}</h1>
+      <p>{message || "Not Found"}</p>
     </div>
   );
 }

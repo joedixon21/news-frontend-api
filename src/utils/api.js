@@ -21,7 +21,7 @@ export const getAllArticles = (
       return response.data.articles;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
 };
 
@@ -32,7 +32,7 @@ export const getSingleArticle = (article_id) => {
       return response.data.article;
     })
     .catch((error) => {
-      return error;
+      throw error;
     });
 };
 
